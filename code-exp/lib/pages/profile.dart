@@ -17,7 +17,6 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.black,
         alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -34,7 +33,7 @@ class _ProfileState extends State<Profile> {
                       fontSize: 25,
                       fontWeight: FontWeight.bold),
                 ),
-                color: Colors.green,
+                color: Color(0XFF4d7753),
               ),
               onTap: () {
                 context.read<AuthService>().signOut();

@@ -30,6 +30,7 @@ class _UserHomeState extends State<UserHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0XFF4d7753),
         title: Text("Home"),
         centerTitle: true,
       ),
@@ -43,7 +44,7 @@ class _UserHomeState extends State<UserHome> {
                 icon: Icon(Icons.account_circle), label: 'Profile')
           ],
           currentIndex: selectedIndex,
-          selectedItemColor: Colors.green,
+          selectedItemColor: Color(0XFF4d7753),
           onTap: _onItemTapped),
     );
   }

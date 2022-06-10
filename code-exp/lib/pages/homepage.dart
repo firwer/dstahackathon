@@ -16,8 +16,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
   bool valid = true;
   @override
   Widget build(BuildContext context) {
@@ -32,7 +30,7 @@ class _HomeState extends State<Home> {
                   image: const AssetImage('assets/images/background.jpg'),
                   fit: BoxFit.cover,
                   colorFilter: ColorFilter.mode(
-                      Colors.black.withOpacity(0.5), BlendMode.darken),
+                      Colors.black.withOpacity(0.7), BlendMode.darken),
                 ),
               ),
             ),
@@ -73,6 +71,15 @@ class _HomeState extends State<Home> {
                       borderRadius: BorderRadius.circular(30)),
                 ),
                 onTap: () {
+                  showModalBottomSheet<void>(
+                      isScrollControlled: true,
+                      backgroundColor: Colors.transparent,
+                      context: context,
+                      builder: (context) {
+                        return BottomPanel(
+                          signin: true,
+                        );
+                      });
                   // Show Sign In Sheet
                 },
               ),
@@ -96,7 +103,15 @@ class _HomeState extends State<Home> {
                       borderRadius: BorderRadius.circular(30)),
                 ),
                 onTap: () {
-                  // Show Sign Up Sheet
+                  showModalBottomSheet<void>(
+                      isScrollControlled: true,
+                      backgroundColor: Colors.transparent,
+                      context: context,
+                      builder: (context) {
+                        return BottomPanel(
+                          signin: false,
+                        );
+                      });
                 },
               ),
             )
@@ -105,33 +120,136 @@ class _HomeState extends State<Home> {
   }
 }
 
+class BottomPanel extends StatefulWidget {
+  BottomPanel({
+    Key? key,
+    required this.signin,
+  }) : super(key: key);
+  final bool signin;
 
-//  valid
-//                         ? SizedBox(
-//                             height: 0,
-//                           )
-//                         : Text("Invalid Login!"),
-//                     TextField(
-//                       controller: emailController,
-//                       decoration: InputDecoration(labelText: 'Email'),
-//                     ),
-//                     TextField(
-//                       controller: passwordController,
-//                       decoration: InputDecoration(labelText: 'Password'),
-//                     ),
-//                     ElevatedButton(
-//                         child: Text("Sign In"),
-//                         onPressed: () async {
-//                           print('pressed');
-//                           String? response = await context
-//                               .read<AuthService>()
-//                               .signIn(
-//                                   email: emailController.text,
-//                                   password: passwordController.text);
-//                           print(response);
-//                           if (response == null) {
-//                             setState(() {
-//                               valid = true;
-//                             });
-//                           }
-//                         })
+  @override
+  State<BottomPanel> createState() => _BottomPanelState();
+}
+
+class _BottomPanelState extends State<BottomPanel> {
+  final TextEditingController emailController = TextEditingController();
+
+  final TextEditingController passwordController = TextEditingController();
+  String response = "";
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+        height: MediaQuery.of(context).size.height * 0.45 +
+            MediaQuery.of(context).viewInsets.bottom,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(40),
+            topRight: Radius.circular(40),
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(Icons.account_circle, size: 60, color: Colors.grey.shade800),
+            widget.signin
+                ? Text(
+                    'User Login',
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  )
+                : Text(
+                    'User Sign Up',
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  ),
+            SizedBox(height: 15),
+            userInput(emailController, 'Email', TextInputType.emailAddress),
+            userInput(
+                passwordController, "Password", TextInputType.visiblePassword),
+            SizedBox(height: 7),
+            Text(response, style: TextStyle(color: Colors.red)),
+            SizedBox(height: 8),
+            InkWell(
+              child: Container(
+                alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width * 0.7,
+                height: 50,
+                child: widget.signin
+                    ? Text(
+                        'Sign In',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      )
+                    : Text(
+                        'Sign Up',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
+                decoration: BoxDecoration(
+                    color: Color(0XFF4d7753),
+                    borderRadius: BorderRadius.circular(30)),
+              ),
+              onTap: () async {
+                if (widget.signin) {
+                  print('pressed');
+                  String? result = await context.read<AuthService>().signIn(
+                      email: emailController.text,
+                      password: passwordController.text);
+                  print("RESULT: ${result}");
+
+                  if (result != "Signed In") {
+                    response = result!;
+                  } else {
+                    Navigator.of(context).pop();
+                  }
+                  setState(() {});
+                  if (response == null) {}
+                } else {
+                  String? result = await context.read<AuthService>().signUp(
+                      email: emailController.text,
+                      password: passwordController.text);
+                  print(result);
+                  if (result != 'Signed Up') {
+                    response = result!;
+                  } else {
+                    Navigator.of(context).pop();
+                  }
+                  setState(() {});
+                }
+              },
+            ),
+          ],
+        ));
+  }
+}
+
+Widget userInput(TextEditingController userInput, String hintTitle,
+    TextInputType keyboardType) {
+  return Container(
+    height: 55,
+    margin: EdgeInsets.only(bottom: 15),
+    decoration: BoxDecoration(
+        color: Colors.grey.shade300, borderRadius: BorderRadius.circular(30)),
+    child: Padding(
+      padding: const EdgeInsets.only(left: 25.0, top: 15, right: 25),
+      child: TextField(
+        controller: userInput,
+        autocorrect: false,
+        enableSuggestions: false,
+        autofocus: false,
+        decoration: InputDecoration.collapsed(
+          hintText: hintTitle,
+          hintStyle: TextStyle(
+              fontSize: 18,
+              color: Color(0XFFC4C4C4),
+              fontStyle: FontStyle.italic),
+        ),
+        keyboardType: keyboardType,
+      ),
+    ),
+  );
+}
