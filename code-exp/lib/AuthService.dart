@@ -31,4 +31,8 @@ class AuthService {
       return e.message;
     }
   }
+
+  Future<String?> signOut() async {
+    await FirebaseAuth.instance.signOut();
+  }
 }
