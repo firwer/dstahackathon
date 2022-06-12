@@ -58,6 +58,10 @@ class HomeTab extends StatefulWidget {
 }
 
 class _HomeTabState extends State<HomeTab> {
+  void selectCategory() {
+    Navigator.of(context).pushNamed('/eCanteen-screen');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -154,27 +158,32 @@ class _HomeTabState extends State<HomeTab> {
                 Stack(
                   alignment: Alignment.bottomCenter,
                   children: [
-                    Container(
-                      height: 170,
-                      width: 170,
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                        image: DecorationImage(
-                          image: const AssetImage(
-                              'assets/images/Special-sauces_1.jpg'),
-                          fit: BoxFit.cover,
-                          colorFilter: ColorFilter.mode(
-                              Colors.black.withOpacity(0.5), BlendMode.darken),
-                        ),
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
+                    InkWell(
+                      onTap: selectCategory,
+                      child: Container(
+                        height: 170,
+                        width: 170,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          image: DecorationImage(
+                            image: const AssetImage(
+                                'assets/images/Special-sauces_1.jpg'),
+                            fit: BoxFit.cover,
+                            colorFilter: ColorFilter.mode(
+                                Colors.black.withOpacity(0.5),
+                                BlendMode.darken),
                           ),
-                        ],
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     Text(

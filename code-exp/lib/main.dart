@@ -1,4 +1,5 @@
 import 'package:code_exp/AuthService.dart';
+import 'package:code_exp/pages/ecanteen.dart';
 import 'package:code_exp/pages/homepage.dart';
 import 'package:code_exp/pages/userpage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -45,7 +46,10 @@ class Main extends StatelessWidget {
               fontFamily: 'Lato',
               primarySwatch: Colors.green,
               visualDensity: VisualDensity.adaptivePlatformDensity),
-          home: AuthWrapper()),
+          home: AuthWrapper(),
+          routes: {
+            '/eCanteen-screen': (ctx) => EcanteenScreen(),
+          }),
     );
   }
 }
