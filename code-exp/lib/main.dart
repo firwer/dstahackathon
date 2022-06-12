@@ -1,5 +1,6 @@
 import 'package:code_exp/AuthService.dart';
 import 'package:code_exp/myUser.dart';
+import 'package:code_exp/pages/ecanteen.dart';
 import 'package:code_exp/pages/homepage.dart';
 import 'package:code_exp/pages/newUserData.dart';
 import 'package:code_exp/pages/userpage.dart';
@@ -48,7 +49,10 @@ class Main extends StatelessWidget {
               fontFamily: 'Lato',
               primarySwatch: Colors.green,
               visualDensity: VisualDensity.adaptivePlatformDensity),
-          home: AuthWrapper()),
+          home: AuthWrapper(),
+          routes: {
+            '/eCanteen-screen': (ctx) => EcanteenScreen(),
+          }),
     );
   }
 }
