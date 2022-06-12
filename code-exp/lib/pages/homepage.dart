@@ -195,12 +195,9 @@ class _BottomPanelState extends State<BottomPanel> {
               ),
               onTap: () async {
                 if (widget.signin) {
-                  print('pressed');
                   String? result = await context.read<AuthService>().signIn(
                       email: emailController.text,
                       password: passwordController.text);
-                  print("RESULT: ${result}");
-
                   if (result != "Signed In") {
                     response = result!;
                   } else {
