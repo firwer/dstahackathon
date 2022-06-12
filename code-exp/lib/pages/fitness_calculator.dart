@@ -16,9 +16,6 @@ class _fitnessCalculatorState extends State<fitnessCalculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('IPPT Calculator'),
-      ),
       body: const Center(
         child: Text('WIP'),
       ),
