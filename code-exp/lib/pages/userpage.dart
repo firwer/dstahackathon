@@ -72,6 +72,10 @@ class HomeTab extends StatefulWidget {
 }
 
 class _HomeTabState extends State<HomeTab> {
+  void selectCategory() {
+    Navigator.of(context).pushNamed('/eCanteen-screen');
+  }
+
   @override
   Widget build(BuildContext context) {
     double boxDim = MediaQuery.of(context).size.width / 2.4;
