@@ -26,12 +26,26 @@ class _UserHomeState extends State<UserHome> {
     });
   }
 
+  String appBarTitle = "Home";
   @override
   Widget build(BuildContext context) {
+    if (selectedIndex == 0) {
+      setState(() {
+        appBarTitle = "Home";
+      });
+    } else if (selectedIndex == 1) {
+      setState(() {
+        appBarTitle = "IPPT Fitness Calculator";
+      });
+    } else if (selectedIndex == 2) {
+      setState(() {
+        appBarTitle = "Profile";
+      });
+    }
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0XFF4d7753),
-        title: Text("Home"),
+        title: Text(appBarTitle),
         centerTitle: true,
       ),
       body: _widgetOptions.elementAt(selectedIndex),
