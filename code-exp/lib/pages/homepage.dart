@@ -232,7 +232,7 @@ Widget userInput(TextEditingController userInput, String hintTitle,
     decoration: BoxDecoration(
         color: Colors.grey.shade300, borderRadius: BorderRadius.circular(30)),
     child: Padding(
-      padding: const EdgeInsets.only(left: 25.0, top: 15, right: 25),
+      padding: const EdgeInsets.only(left: 25.0, top: 20, right: 25),
       child: TextField(
         controller: userInput,
         autocorrect: false,

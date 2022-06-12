@@ -3,6 +3,9 @@ import 'package:code_exp/pages/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:provider/provider.dart';
+
+import '../myUser.dart';
 
 // User home is the default page when user is logged in. Activities all starts here
 
@@ -42,24 +45,27 @@ class _UserHomeState extends State<UserHome> {
         appBarTitle = "Profile";
       });
     }
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0XFF4d7753),
-        title: Text(appBarTitle),
-        centerTitle: true,
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color(0XFF4d7753),
+          title: Text(appBarTitle),
+          centerTitle: true,
+        ),
+        body: _widgetOptions.elementAt(selectedIndex),
+        bottomNavigationBar: BottomNavigationBar(
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.fitness_center),
+                  label: 'Fitness Calculator'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.account_circle), label: 'Profile')
+            ],
+            currentIndex: selectedIndex,
+            selectedItemColor: Color(0XFF4d7753),
+            onTap: _onItemTapped),
       ),
-      body: _widgetOptions.elementAt(selectedIndex),
-      bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.fitness_center), label: 'Fitness Calculator'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle), label: 'Profile')
-          ],
-          currentIndex: selectedIndex,
-          selectedItemColor: Color(0XFF4d7753),
-          onTap: _onItemTapped),
     );
   }
 }

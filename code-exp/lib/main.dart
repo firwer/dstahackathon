@@ -1,11 +1,14 @@
 import 'package:code_exp/AuthService.dart';
+import 'package:code_exp/myUser.dart';
 import 'package:code_exp/pages/homepage.dart';
+import 'package:code_exp/pages/newUserData.dart';
 import 'package:code_exp/pages/userpage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
+import 'package:code_exp/firedb.dart';
 
 // Code starts here
 Future<void> main() async {
@@ -53,8 +56,19 @@ class Main extends StatelessWidget {
 // Auth Wrapper will decide whether user is logged in or not,
 // Logged In => UserHome(); (userpage.dart)
 // Not Logged In => Home(); (homepage.dart)
-class AuthWrapper extends StatelessWidget {
+class AuthWrapper extends StatefulWidget {
   const AuthWrapper({Key? key}) : super(key: key);
+
+  @override
+  State<AuthWrapper> createState() => _AuthWrapperState();
+}
+
+class _AuthWrapperState extends State<AuthWrapper> {
+  @override
+  void initState() {
+    firedb.getUserInfo();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +76,14 @@ class AuthWrapper extends StatelessWidget {
 
     // User not null, so logged in, show user's home page
     if (firebaseUser != null) {
-      return UserHome();
+      print(myUser.name);
+      print(myUser.gender);
+      if (myUser.name != "") {
+        return UserHome();
+        // } else {
+        //   return newUserData();
+        // }
+      }
     }
     // User is null, so show the home page to prompt user to login first
     return Home();
