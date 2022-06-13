@@ -53,7 +53,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             Positioned(
-              top: 550,
+              top: MediaQuery.of(context).size.height * 0.65,
               child: InkWell(
                 child: Container(
                   alignment: Alignment.center,
@@ -80,12 +80,11 @@ class _HomeState extends State<Home> {
                           signin: true,
                         );
                       });
-                  // Show Sign In Sheet
                 },
               ),
             ),
             Positioned(
-              top: 630,
+              top: MediaQuery.of(context).size.height * 0.75,
               child: InkWell(
                 child: Container(
                   alignment: Alignment.center,
@@ -120,6 +119,7 @@ class _HomeState extends State<Home> {
   }
 }
 
+// Sign in and Sign out bottom sheet
 class BottomPanel extends StatefulWidget {
   BottomPanel({
     Key? key,
@@ -139,8 +139,8 @@ class _BottomPanelState extends State<BottomPanel> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-        height: MediaQuery.of(context).size.height * 0.45 +
+        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+        height: MediaQuery.of(context).size.height * 0.55 +
             MediaQuery.of(context).viewInsets.bottom,
         decoration: BoxDecoration(
           color: Colors.white,
@@ -166,9 +166,9 @@ class _BottomPanelState extends State<BottomPanel> {
             userInput(emailController, 'Email', TextInputType.emailAddress),
             userInput(
                 passwordController, "Password", TextInputType.visiblePassword),
-            SizedBox(height: 7),
+            SizedBox(height: 5),
             Text(response, style: TextStyle(color: Colors.red)),
-            SizedBox(height: 8),
+            SizedBox(height: 5),
             InkWell(
               child: Container(
                 alignment: Alignment.center,
@@ -195,12 +195,9 @@ class _BottomPanelState extends State<BottomPanel> {
               ),
               onTap: () async {
                 if (widget.signin) {
-                  print('pressed');
                   String? result = await context.read<AuthService>().signIn(
                       email: emailController.text,
                       password: passwordController.text);
-                  print("RESULT: ${result}");
-
                   if (result != "Signed In") {
                     response = result!;
                   } else {
@@ -235,7 +232,7 @@ Widget userInput(TextEditingController userInput, String hintTitle,
     decoration: BoxDecoration(
         color: Colors.grey.shade300, borderRadius: BorderRadius.circular(30)),
     child: Padding(
-      padding: const EdgeInsets.only(left: 25.0, top: 15, right: 25),
+      padding: const EdgeInsets.only(left: 25.0, top: 20, right: 25),
       child: TextField(
         controller: userInput,
         autocorrect: false,
