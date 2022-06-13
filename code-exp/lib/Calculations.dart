@@ -5,7 +5,11 @@ int totalScore(pushup, situp, run) {
 }
 
 String result(int totalPoints) {
+<<<<<<< HEAD
+  if (totalPoints < 51) {
+=======
   if (totalPoints <= 50) {
+>>>>>>> main
     return "Fail";
   } else if (totalPoints < 61) {
     return "Pass";
@@ -23,7 +27,9 @@ colorChange(String results) {
     return Color.fromARGB(255, 230, 178, 20);
   } else if (results == 'Silver') {
     return Color.fromARGB(255, 117, 127, 133);
-  } else {
+  } else if (results == 'Pass' || results == 'Pass with incentive') {
     return Color.fromARGB(255, 72, 62, 33);
+  } else {
+    return Color.fromARGB(255, 61, 13, 13);
   }
 }

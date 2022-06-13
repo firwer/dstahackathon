@@ -85,6 +85,6 @@ class _AuthWrapperState extends State<AuthWrapper> {
       return UserHome();
     }
     // User is null, so show the home page to prompt user to login first
-    return Home();
+    return UserHome();
   }
 }
