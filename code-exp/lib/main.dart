@@ -1,5 +1,6 @@
 import 'package:code_exp/AuthService.dart';
 import 'package:code_exp/myUser.dart';
+import 'package:code_exp/pages/FITPlan.dart';
 import 'package:code_exp/pages/ecanteen.dart';
 import 'package:code_exp/pages/homepage.dart';
 import 'package:code_exp/pages/newUserData.dart';
@@ -44,6 +45,7 @@ class Main extends StatelessWidget {
         )
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
           title: 'Login Page',
           theme: ThemeData(
               fontFamily: 'Lato',
@@ -52,10 +54,11 @@ class Main extends StatelessWidget {
           initialRoute: '/',
           routes: {
             '/': (context) => AuthWrapper(),
-            '/eCanteen-screen': (ctx) => EcanteenScreen(),
+            '/eCanteen-screen': (context) => EcanteenScreen(),
             '/home': (context) => Home(),
             '/userhome': (context) => UserHome(),
             '/getstarted': (context) => newUserData(),
+            '/FITplan': (context) => FITPlan(),
           }),
     );
   }

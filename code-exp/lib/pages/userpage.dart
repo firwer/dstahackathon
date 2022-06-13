@@ -46,27 +46,24 @@ class _UserHomeState extends State<UserHome> {
         appBarTitle = "Profile";
       });
     }
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Color(0XFF4d7753),
-          title: Text(appBarTitle),
-          centerTitle: true,
-        ),
-        body: _widgetOptions.elementAt(selectedIndex),
-        bottomNavigationBar: BottomNavigationBar(
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.fitness_center),
-                  label: 'Fitness Calculator'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.account_circle), label: 'Profile')
-            ],
-            currentIndex: selectedIndex,
-            selectedItemColor: Color(0XFF4d7753),
-            onTap: _onItemTapped),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0XFF4d7753),
+        title: Text(appBarTitle),
+        centerTitle: true,
       ),
+      body: _widgetOptions.elementAt(selectedIndex),
+      bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.fitness_center), label: 'Fitness Calculator'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.account_circle), label: 'Profile')
+          ],
+          currentIndex: selectedIndex,
+          selectedItemColor: Color(0XFF4d7753),
+          onTap: _onItemTapped),
     );
   }
 }
@@ -105,39 +102,44 @@ class _HomeTabState extends State<HomeTab> {
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
               ),
               SizedBox(height: 10),
-              Stack(
-                alignment: Alignment.bottomCenter,
-                children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 200.0,
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      image: DecorationImage(
-                        image: const AssetImage('assets/images/ippt.png'),
-                        fit: BoxFit.cover,
-                        colorFilter: ColorFilter.mode(
-                            Colors.black.withOpacity(0.5), BlendMode.darken),
-                      ),
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
+              InkWell(
+                child: Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 200.0,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        image: DecorationImage(
+                          image: const AssetImage('assets/images/ippt.png'),
+                          fit: BoxFit.cover,
+                          colorFilter: ColorFilter.mode(
+                              Colors.black.withOpacity(0.5), BlendMode.darken),
                         ),
-                      ],
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  Text(
-                    'IPPTEz System',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold),
-                  )
-                ],
+                    Text(
+                      'IPPTEz System',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
+                onTap: () {
+                  Navigator.of(context).pushNamed('/FITplan');
+                },
               ),
               SizedBox(
                 height: 10,
@@ -189,42 +191,47 @@ class _HomeTabState extends State<HomeTab> {
                   SizedBox(width: 10),
 
                   //eCanteen
-                  Stack(
-                    alignment: Alignment.bottomCenter,
-                    children: [
-                      Container(
-                        height: boxDim,
-                        width: boxDim,
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                          image: DecorationImage(
-                            image: const AssetImage(
-                                'assets/images/Special-sauces_1.jpg'),
-                            fit: BoxFit.cover,
-                            colorFilter: ColorFilter.mode(
-                                Colors.black.withOpacity(0.5),
-                                BlendMode.darken),
-                          ),
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 5,
-                              blurRadius: 7,
-                              offset:
-                                  Offset(0, 3), // changes position of shadow
+                  InkWell(
+                    child: Stack(
+                      alignment: Alignment.bottomCenter,
+                      children: [
+                        Container(
+                          height: boxDim,
+                          width: boxDim,
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                            image: DecorationImage(
+                              image: const AssetImage(
+                                  'assets/images/Special-sauces_1.jpg'),
+                              fit: BoxFit.cover,
+                              colorFilter: ColorFilter.mode(
+                                  Colors.black.withOpacity(0.5),
+                                  BlendMode.darken),
                             ),
-                          ],
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset:
+                                    Offset(0, 3), // changes position of shadow
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      Text(
-                        'eCanteen Pal',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
-                      )
-                    ],
+                        Text(
+                          'eCanteen Pal',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
+                    onTap: () {
+                      Navigator.of(context).pushNamed('/eCanteen-screen');
+                    },
                   ),
                 ],
               )

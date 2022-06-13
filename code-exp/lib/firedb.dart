@@ -21,6 +21,7 @@ class firedb {
     });
   }
 
+  // Do not need to access from here, this data is automatically retrieved and saved in myUser.dart upon successful login
   static void getUserInfo(BuildContext context) async {
     print('Getting User info');
     await db
