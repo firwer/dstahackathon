@@ -33,7 +33,6 @@ class _fitnessCalculatorState extends State<fitnessCalculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< HEAD
         body: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
@@ -172,17 +171,6 @@ class _fitnessCalculatorState extends State<fitnessCalculator> {
         )
       ],
     ));
-=======
-      body: const Center(
-        child: Text('WIP'),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        backgroundColor: Colors.green,
-        onPressed: () {},
-      ),
-    );
->>>>>>> main
   }
 }
 
