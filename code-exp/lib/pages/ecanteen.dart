@@ -18,7 +18,10 @@ class _EcanteenScreenState extends State<EcanteenScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Self Pickup Services')),
+        appBar: AppBar(
+          title: Text('Self Pickup Services'),
+          backgroundColor: Color(0XFF4d7753),
+        ),
         body: Container(
             height: MediaQuery.of(context).size.height,
             child: ListView(
@@ -37,7 +40,7 @@ class _EcanteenScreenState extends State<EcanteenScreen> {
                   child: Card(
                     elevation: 5,
                     child: Column(children: <Widget>[
-                      Text('Jurong Camp'),
+                      Text('Nee Soon Camp'),
                       Container(
                         height: 150,
                         child: Image.asset(
@@ -51,7 +54,7 @@ class _EcanteenScreenState extends State<EcanteenScreen> {
                 Card(
                   elevation: 5,
                   child: Column(children: <Widget>[
-                    Text('Jurong Camp'),
+                    Text('Kranji Camp'),
                     Container(
                       height: 150,
                       child: Image.asset(
@@ -64,7 +67,7 @@ class _EcanteenScreenState extends State<EcanteenScreen> {
                 Card(
                   elevation: 5,
                   child: Column(children: <Widget>[
-                    Text('Jurong Camp'),
+                    Text('Clementi Camp'),
                     Container(
                       height: 150,
                       child: Image.asset(

@@ -2,9 +2,11 @@ import 'package:code_exp/myUser.dart';
 import 'package:code_exp/pages/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:code_exp/firedb.dart';
+import 'package:provider/provider.dart';
 
 // This page contains user data collection widgets for new sign ups
 // Currently this page will collect: Age, Gender, Name, Height and Weight
+//enum gender { male, female }
 
 class newUserData extends StatefulWidget {
   const newUserData({Key? key}) : super(key: key);
@@ -18,8 +20,8 @@ class _newUserDataState extends State<newUserData> {
   TextEditingController height = TextEditingController();
   TextEditingController weight = TextEditingController();
   @override
+  String? selectedGender = "male";
   Widget build(BuildContext context) {
-    String? selectedGender = "male";
     return Scaffold(
       backgroundColor: Color(0XFF4d7753),
       body: Padding(
@@ -176,11 +178,14 @@ class _newUserDataState extends State<newUserData> {
                   color: Colors.white, borderRadius: BorderRadius.circular(30)),
             ),
             onTap: () {
-              myUser.height = int.parse(height.text);
-              myUser.weight = double.parse(weight.text);
-              myUser.name = name.text;
-              firedb.createUser(
-                  myUser.name, selectedGender!, myUser.height, myUser.weight);
+              Provider.of<myUser>(context, listen: false).updateUserInfo(
+                  name.text,
+                  int.parse(height.text),
+                  double.parse(weight.text),
+                  selectedGender!);
+              firedb.createUser(name.text, selectedGender!,
+                  int.parse(height.text), double.parse(weight.text));
+              Navigator.of(context).pushNamed('/userhome');
             },
           ),
         ]),

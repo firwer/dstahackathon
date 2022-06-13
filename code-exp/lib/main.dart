@@ -1,5 +1,6 @@
 import 'package:code_exp/AuthService.dart';
 import 'package:code_exp/myUser.dart';
+import 'package:code_exp/pages/FITPlan.dart';
 import 'package:code_exp/pages/ecanteen.dart';
 import 'package:code_exp/pages/homepage.dart';
 import 'package:code_exp/pages/newUserData.dart';
@@ -36,7 +37,7 @@ class Main extends StatelessWidget {
         Provider<AuthService>(
           create: (_) => AuthService(FirebaseAuth.instance),
         ),
-
+        ChangeNotifierProvider(create: (_) => myUser()),
         // Subscribe to the stream service, detect any changes
         StreamProvider(
           create: (context) => context.read<AuthService>().authStateChanges,
@@ -44,14 +45,20 @@ class Main extends StatelessWidget {
         )
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
           title: 'Login Page',
           theme: ThemeData(
               fontFamily: 'Lato',
               primarySwatch: Colors.green,
               visualDensity: VisualDensity.adaptivePlatformDensity),
-          home: AuthWrapper(),
+          initialRoute: '/',
           routes: {
-            '/eCanteen-screen': (ctx) => EcanteenScreen(),
+            '/': (context) => AuthWrapper(),
+            '/eCanteen-screen': (context) => EcanteenScreen(),
+            '/home': (context) => Home(),
+            '/userhome': (context) => UserHome(),
+            '/getstarted': (context) => newUserData(),
+            '/FITplan': (context) => FITPlan(),
           }),
     );
   }
@@ -69,25 +76,13 @@ class AuthWrapper extends StatefulWidget {
 
 class _AuthWrapperState extends State<AuthWrapper> {
   @override
-  void initState() {
-    firedb.getUserInfo();
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final firebaseUser = context.watch<User?>();
 
     // User not null, so logged in, show user's home page
     if (firebaseUser != null) {
-      print(myUser.name);
-      print(myUser.gender);
-      if (myUser.name != "") {
-        return UserHome();
-        // } else {
-        //   return newUserData();
-        // }
-      }
+      firedb.getUserInfo(context);
+      return UserHome();
     }
     // User is null, so show the home page to prompt user to login first
     return UserHome();

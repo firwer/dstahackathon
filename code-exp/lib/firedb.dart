@@ -2,6 +2,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:code_exp/myUser.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class firedb {
   static FirebaseFirestore db = FirebaseFirestore.instance;
@@ -19,16 +21,19 @@ class firedb {
     });
   }
 
-  static void getUserInfo() async {
+  // Do not need to access from here, this data is automatically retrieved and saved in myUser.dart upon successful login
+  static void getUserInfo(BuildContext context) async {
+    print('Getting User info');
     await db
         .collection('users')
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .get()
         .then((response) {
-      myUser.name = response['name'];
-      myUser.height = response['height'];
-      myUser.weight = response['weight'];
-      myUser.gender = response['gender'];
+      Provider.of<myUser>(context, listen: false).updateUserInfo(
+          response['name'],
+          response['height'],
+          response['weight'],
+          response['gender']);
     });
   }
 }
