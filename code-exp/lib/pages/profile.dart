@@ -1,8 +1,11 @@
 import 'package:code_exp/AuthService.dart';
+import 'package:code_exp/pages/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
+
+import '../myUser.dart';
 
 // This page holds the user profile details and settings
 
@@ -21,6 +24,9 @@ class _ProfileState extends State<Profile> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            ListTile(
+                leading: Text('Height:'),
+                title: Text(Provider.of<myUser>(context).height.toString())),
             InkWell(
               child: Container(
                 alignment: Alignment.center,

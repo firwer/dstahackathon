@@ -36,7 +36,7 @@ class Main extends StatelessWidget {
         Provider<AuthService>(
           create: (_) => AuthService(FirebaseAuth.instance),
         ),
-
+        ChangeNotifierProvider(create: (_) => myUser()),
         // Subscribe to the stream service, detect any changes
         StreamProvider(
           create: (context) => context.read<AuthService>().authStateChanges,
@@ -49,9 +49,13 @@ class Main extends StatelessWidget {
               fontFamily: 'Lato',
               primarySwatch: Colors.green,
               visualDensity: VisualDensity.adaptivePlatformDensity),
-          home: AuthWrapper(),
+          initialRoute: '/',
           routes: {
+            '/': (context) => AuthWrapper(),
             '/eCanteen-screen': (ctx) => EcanteenScreen(),
+            '/home': (context) => Home(),
+            '/userhome': (context) => UserHome(),
+            '/getstarted': (context) => newUserData(),
           }),
     );
   }
@@ -69,25 +73,13 @@ class AuthWrapper extends StatefulWidget {
 
 class _AuthWrapperState extends State<AuthWrapper> {
   @override
-  void initState() {
-    firedb.getUserInfo();
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final firebaseUser = context.watch<User?>();
 
     // User not null, so logged in, show user's home page
     if (firebaseUser != null) {
-      print(myUser.name);
-      print(myUser.gender);
-      if (myUser.name != "") {
-        return UserHome();
-        // } else {
-        //   return newUserData();
-        // }
-      }
+      firedb.getUserInfo(context);
+      return UserHome();
     }
     // User is null, so show the home page to prompt user to login first
     return Home();

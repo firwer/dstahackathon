@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
+import 'package:code_exp/firedb.dart';
 
 import '../myUser.dart';
 
@@ -83,6 +84,12 @@ class _HomeTabState extends State<HomeTab> {
   }
 
   @override
+  void initState() {
+    firedb.getUserInfo(context);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     double boxDim = MediaQuery.of(context).size.width / 2.4;
     return Container(
@@ -93,7 +100,7 @@ class _HomeTabState extends State<HomeTab> {
             children: [
               Align(
                 alignment: Alignment.centerLeft,
-                child: Text('Good Evening User',
+                child: Text('Good Evening ${Provider.of<myUser>(context).name}',
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
               ),

@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+import 'package:code_exp/firedb.dart';
 
 // Homepage will be shown by default if user not logged in
 
@@ -201,6 +202,7 @@ class _BottomPanelState extends State<BottomPanel> {
                   if (result != "Signed In") {
                     response = result!;
                   } else {
+                    firedb.getUserInfo(context);
                     Navigator.of(context).pop();
                   }
                   setState(() {});
@@ -209,11 +211,10 @@ class _BottomPanelState extends State<BottomPanel> {
                   String? result = await context.read<AuthService>().signUp(
                       email: emailController.text,
                       password: passwordController.text);
-                  print(result);
                   if (result != 'Signed Up') {
                     response = result!;
                   } else {
-                    Navigator.of(context).pop();
+                    Navigator.of(context).pushNamed('/getstarted');
                   }
                   setState(() {});
                 }
