@@ -52,7 +52,9 @@ class _echecklistScreenState extends State<echecklistScreen> {
               dataList.elementAt(index)[1].toString() == "true"
                   ? selected
                   : nonSelected,
-              Text(dataList.elementAt(index)[0].toString()), () {
+              Text(dataList.elementAt(index)[0].toString() +
+                  ' X ' +
+                  dataList.elementAt(index)[2].toString()), () {
             setState(() {
               dataList.elementAt(index)[1].toString() == "true"
                   ? dataList.elementAt(index)[1] = "false"
