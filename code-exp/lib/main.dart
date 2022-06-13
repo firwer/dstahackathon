@@ -1,6 +1,8 @@
 import 'package:code_exp/AuthService.dart';
+import 'package:code_exp/firedb.dart';
 import 'package:code_exp/myUser.dart';
 import 'package:code_exp/pages/FITPlan.dart';
+import 'package:code_exp/pages/checklist/echecklist.dart';
 import 'package:code_exp/pages/ecanteen.dart';
 import 'package:code_exp/pages/homepage.dart';
 import 'package:code_exp/pages/newUserData.dart';
@@ -9,8 +11,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import 'firebase_options.dart';
-import 'package:code_exp/firedb.dart';
 
 // Code starts here
 Future<void> main() async {
@@ -45,7 +47,7 @@ class Main extends StatelessWidget {
         )
       ],
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
+          debugShowCheckedModeBanner: false,
           title: 'Login Page',
           theme: ThemeData(
               fontFamily: 'Lato',
@@ -55,6 +57,7 @@ class Main extends StatelessWidget {
           routes: {
             '/': (context) => AuthWrapper(),
             '/eCanteen-screen': (context) => EcanteenScreen(),
+            '/eChecklist-screen': (context) => echecklistScreen(),
             '/home': (context) => Home(),
             '/userhome': (context) => UserHome(),
             '/getstarted': (context) => newUserData(),
