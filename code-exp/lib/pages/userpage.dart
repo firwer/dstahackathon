@@ -45,13 +45,6 @@ class _UserHomeState extends State<UserHome> {
         appBarTitle = "Profile";
       });
     }
-<<<<<<< HEAD
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0XFF4d7753),
-        title: Text(appBarTitle),
-        centerTitle: true,
-=======
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -72,7 +65,6 @@ class _UserHomeState extends State<UserHome> {
             currentIndex: selectedIndex,
             selectedItemColor: Color(0XFF4d7753),
             onTap: _onItemTapped),
->>>>>>> main
       ),
     );
   }
