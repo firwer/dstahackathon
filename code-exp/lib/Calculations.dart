@@ -1,4 +1,3 @@
-import 'package:code_exp/Formulae.dart';
 import 'package:flutter/material.dart';
 
 int totalScore(pushup, situp, run) {
@@ -6,7 +5,9 @@ int totalScore(pushup, situp, run) {
 }
 
 String result(int totalPoints) {
-  if (totalPoints < 61) {
+  if (totalPoints <= 50) {
+    return "Fail";
+  } else if (totalPoints < 61) {
     return "Pass";
   } else if (totalPoints < 75) {
     return "Pass with incentive";
