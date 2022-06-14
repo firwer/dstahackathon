@@ -11,7 +11,9 @@ import 'package:code_exp/Calculations.dart';
 const bottomContainerHeight = 80.0;
 const cardColor = Color(0XFF4d7753);
 const cardTextStyle =
-    TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold);
+    TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold);
+const cardTextStyle2 = TextStyle(
+    color: Color(0xff8d8e98), fontSize: 20, fontWeight: FontWeight.bold);
 
 class fitnessCalculator extends StatefulWidget {
   const fitnessCalculator({Key? key}) : super(key: key);
@@ -21,12 +23,13 @@ class fitnessCalculator extends StatefulWidget {
 }
 
 class _fitnessCalculatorState extends State<fitnessCalculator> {
+  static int age = 22;
   static int startingPushups = 30;
   static int startingSitups = 30;
   static int startingRunIndex = 31;
-  static int pointsPU = pointsForPushUps(22, startingPushups);
-  static int pointsSU = pointsforSitUps(22, startingSitups);
-  static int pointsRun = pointsforRun(22, timings[startingRunIndex]);
+  static int pointsPU = pointsForPushUps(age, startingPushups);
+  static int pointsSU = pointsforSitUps(age, startingSitups);
+  static int pointsRun = pointsforRun(age, timings[startingRunIndex]);
   static int totalPoints = pointsPU + pointsSU + pointsRun;
   String endResult = result(totalPoints);
 
@@ -36,6 +39,66 @@ class _fitnessCalculatorState extends State<fitnessCalculator> {
         body: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
+        Expanded(
+          child: ReusableCard(
+            colour: cardColor,
+            cardChild: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      if (age > 16) {
+                        age--;
+                      }
+                      pointsPU = pointsForPushUps(age, startingPushups);
+                      pointsSU = pointsforSitUps(age, startingSitups);
+                      pointsRun = pointsforRun(age, timings[startingRunIndex]);
+                      totalPoints = pointsPU + pointsSU + pointsRun;
+                      endResult = result(totalPoints);
+                    });
+                  },
+                  child: Icon(
+                    Icons.remove,
+                    color: Colors.white,
+                    size: 20,
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.black,
+                    shape: CircleBorder(),
+                    padding: EdgeInsets.all(10),
+                  ),
+                ),
+                Text('Age: ', style: cardTextStyle),
+                Text(age.toString(), style: cardTextStyle),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      if (age < 61) {
+                        age++;
+                      }
+                      pointsPU = pointsForPushUps(age, startingPushups);
+                      pointsSU = pointsforSitUps(age, startingSitups);
+                      pointsRun = pointsforRun(age, timings[startingRunIndex]);
+                      totalPoints = pointsPU + pointsSU + pointsRun;
+                      endResult = result(totalPoints);
+                    });
+                  },
+                  child: Icon(
+                    Icons.add,
+                    color: Colors.white,
+                    size: 20,
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.black,
+                    shape: CircleBorder(),
+                    padding: EdgeInsets.all(10),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
         Expanded(
           child: ReusableCard(
             colour: cardColor,
@@ -50,11 +113,7 @@ class _fitnessCalculatorState extends State<fitnessCalculator> {
                   children: <Widget>[
                     Text(startingPushups.toString(), style: cardTextStyle),
                     Text('|', style: cardTextStyle),
-                    Text(pointsPU.toString(),
-                        style: TextStyle(
-                            color: Color(0xff8d8e98),
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold)),
+                    Text(pointsPU.toString(), style: cardTextStyle2),
                   ],
                 ),
                 Slider(
@@ -66,7 +125,7 @@ class _fitnessCalculatorState extends State<fitnessCalculator> {
                     onChanged: (double newValue) {
                       setState(() {
                         startingPushups = newValue.round();
-                        pointsPU = pointsForPushUps(22, startingPushups);
+                        pointsPU = pointsForPushUps(age, startingPushups);
                         totalPoints = pointsPU + pointsSU + pointsRun;
                         endResult = result(totalPoints);
                       });
@@ -89,11 +148,7 @@ class _fitnessCalculatorState extends State<fitnessCalculator> {
                   children: <Widget>[
                     Text(startingSitups.toString(), style: cardTextStyle),
                     Text('|', style: cardTextStyle),
-                    Text(pointsSU.toString(),
-                        style: TextStyle(
-                            color: Color(0xff8d8e98),
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold)),
+                    Text(pointsSU.toString(), style: cardTextStyle2),
                   ],
                 ),
                 Slider(
@@ -105,7 +160,7 @@ class _fitnessCalculatorState extends State<fitnessCalculator> {
                     onChanged: (double newValue) {
                       setState(() {
                         startingSitups = newValue.round();
-                        pointsSU = pointsforSitUps(22, startingSitups);
+                        pointsSU = pointsforSitUps(age, startingSitups);
                         totalPoints = pointsPU + pointsSU + pointsRun;
                         endResult = result(totalPoints);
                       });
@@ -128,11 +183,7 @@ class _fitnessCalculatorState extends State<fitnessCalculator> {
                   children: <Widget>[
                     Text(timings[startingRunIndex], style: cardTextStyle),
                     Text('|', style: cardTextStyle),
-                    Text(pointsRun.toString(),
-                        style: TextStyle(
-                            color: Color(0xff8d8e98),
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold)),
+                    Text(pointsRun.toString(), style: cardTextStyle2),
                   ],
                 ),
                 Slider(
@@ -144,7 +195,8 @@ class _fitnessCalculatorState extends State<fitnessCalculator> {
                     onChanged: (double newValue) {
                       setState(() {
                         startingRunIndex = newValue.round();
-                        pointsRun = pointsforRun(22, timings[startingRunIndex]);
+                        pointsRun =
+                            pointsforRun(age, timings[startingRunIndex]);
                         totalPoints = pointsPU + pointsSU + pointsRun;
                         endResult = result(totalPoints);
                       });

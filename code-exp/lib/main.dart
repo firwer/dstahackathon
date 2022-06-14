@@ -45,7 +45,7 @@ class Main extends StatelessWidget {
         )
       ],
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
+          debugShowCheckedModeBanner: false,
           title: 'Login Page',
           theme: ThemeData(
               fontFamily: 'Lato',
@@ -85,6 +85,6 @@ class _AuthWrapperState extends State<AuthWrapper> {
       return UserHome();
     }
     // User is null, so show the home page to prompt user to login first
-    return UserHome();
+    return Home();
   }
 }

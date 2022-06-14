@@ -532,3 +532,9 @@ List<String> timings = [
   "08:40",
   "08:30"
 ];
+
+//BMI Calculator
+String calculateBMI(height, weight) {
+  double mHeight = height / 100;
+  return (weight / (mHeight * mHeight)).toStringAsFixed(2);
+}

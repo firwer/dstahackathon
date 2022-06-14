@@ -1,4 +1,5 @@
 import 'package:code_exp/AuthService.dart';
+import 'package:code_exp/Formulae.dart';
 import 'package:code_exp/pages/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -23,10 +24,29 @@ class _ProfileState extends State<Profile> {
         alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ListTile(
-                leading: Text('Height:'),
-                title: Text(Provider.of<myUser>(context).height.toString())),
+          children: <Widget>[
+            Icon(Icons.account_circle, size: 150, color: Color(0xff8d8e98)),
+            Text(Provider.of<myUser>(context).name,
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold)),
+            Padding(padding: EdgeInsets.all(10.0)),
+            Card(
+                child: ListTile(
+                    leading: Text('Height:'),
+                    title: Text('${Provider.of<myUser>(context).height} cm'))),
+            Card(
+                child: ListTile(
+                    leading: Text('Weight:'),
+                    title: Text('${Provider.of<myUser>(context).weight} kg'))),
+            Card(
+              child: ListTile(
+                  leading: Text("BMI: "),
+                  title: Text(calculateBMI(Provider.of<myUser>(context).height,
+                      Provider.of<myUser>(context).weight))),
+            ),
+            Padding(padding: EdgeInsets.all(10.0)),
             InkWell(
               child: Container(
                 alignment: Alignment.center,
