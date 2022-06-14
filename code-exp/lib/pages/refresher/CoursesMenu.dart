@@ -18,7 +18,7 @@ var course = <Course>[
     page: '/courses/sofun',
   ),
   Course(
-    name: 'Vehicle Commander Refresher',
+    name: 'Vehicle Commander \nRefresher Course',
     abbr: 'VCR',
     page: '/courses/vcr',
   ),

@@ -36,15 +36,20 @@ class _refresherCourseScreenState extends State<refresherCourseScreen> {
                               fontSize: 40,
                             ),
                           ),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Text(
-                            item.name,
-                            textAlign: TextAlign.center,
-                          )
                         ],
                       ),
+                      Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            Text(
+                              item.name,
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                          ]),
+                      //padding used for gesture
                       Padding(
                         padding: const EdgeInsets.only(
                           right: 8.0,
