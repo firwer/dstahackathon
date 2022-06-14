@@ -1,5 +1,6 @@
 import 'package:code_exp/AuthService.dart';
 import 'package:code_exp/myUser.dart';
+import 'package:code_exp/pages/AnytimeEliss.dart';
 import 'package:code_exp/pages/FITPlan.dart';
 import 'package:code_exp/pages/ecanteen.dart';
 import 'package:code_exp/pages/homepage.dart';
@@ -11,11 +12,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 import 'package:code_exp/firedb.dart';
+import 'package:camera/camera.dart';
 
 // Code starts here
+List<CameraDescription>? cameras;
 Future<void> main() async {
   // Initialise firebase shit
   WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -45,7 +49,7 @@ class Main extends StatelessWidget {
         )
       ],
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
+          debugShowCheckedModeBanner: false,
           title: 'Login Page',
           theme: ThemeData(
               fontFamily: 'Lato',
@@ -59,6 +63,7 @@ class Main extends StatelessWidget {
             '/userhome': (context) => UserHome(),
             '/getstarted': (context) => newUserData(),
             '/FITplan': (context) => FITPlan(),
+            '/anytime_eliss': (context) => AnytimeEliss(),
           }),
     );
   }
