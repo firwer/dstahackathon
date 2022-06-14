@@ -33,66 +33,105 @@ class _ProfileState extends State<Profile> {
                     fontSize: 20,
                     fontWeight: FontWeight.bold)),
             Padding(padding: EdgeInsets.all(10.0)),
-            Container(
-              height: rowSize,
-              child: Card(
-                child: Row(
-                  children: [
-                    Container(
-                      width: 75,
-                      child: Text(
-                        'Height:',
-                        textAlign: TextAlign.right,
+            //Personal Data
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Column(
+                children: [
+                  Container(
+                    height: rowSize,
+                    child: Card(
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 75,
+                            child: Text(
+                              'Height:',
+                              textAlign: TextAlign.right,
+                            ),
+                          ),
+                          SizedBox(width: 10),
+                          Text('${Provider.of<myUser>(context).height} cm'),
+                        ],
                       ),
                     ),
-                    SizedBox(width: 10),
-                    Text('${Provider.of<myUser>(context).height} cm'),
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              height: rowSize,
-              child: Card(
-                child: Row(
-                  children: [
-                    Container(
-                      width: 75,
-                      child: Text(
-                        'Weight:',
-                        textAlign: TextAlign.right,
+                  ),
+                  //Weight card
+                  Container(
+                    height: rowSize,
+                    child: Card(
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 75,
+                            child: Text(
+                              'Weight:',
+                              textAlign: TextAlign.right,
+                            ),
+                          ),
+                          SizedBox(width: 10),
+                          Text('${Provider.of<myUser>(context).weight} kg'),
+                        ],
                       ),
                     ),
-                    SizedBox(width: 10),
-                    Text('${Provider.of<myUser>(context).weight} kg'),
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              height: rowSize,
-              child: Card(
-                child: Row(
-                  children: [
-                    Container(
-                      width: 75,
-                      child: Text(
-                        'BMI:',
-                        textAlign: TextAlign.right,
+                  ),
+                  //BMI Card
+                  Container(
+                    height: rowSize,
+                    child: Card(
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 75,
+                            child: Text(
+                              'BMI:',
+                              textAlign: TextAlign.right,
+                            ),
+                          ),
+                          SizedBox(width: 10),
+                          Text(calculateBMI(Provider.of<myUser>(context).height,
+                              Provider.of<myUser>(context).weight)),
+                        ],
                       ),
                     ),
-                    SizedBox(width: 10),
-                    Text(calculateBMI(Provider.of<myUser>(context).height,
-                        Provider.of<myUser>(context).weight)),
-                  ],
-                ),
+                  ),
+
+                  // Empty Placeholder
+                  SizedBox(
+                    height: 0,
+                  ),
+                  //Reservist time card
+                  //('Next Reservist Date'),
+                  Container(
+                    height: rowSize,
+                    child: Card(
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 150,
+                            child: Text(
+                              'Next Reservist Date:',
+                              textAlign: TextAlign.right,
+                            ),
+                          ),
+                          SizedBox(width: 10),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('Mob Manning'),
+                              Text(
+                                '31 July 2022',
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            Card(
-              child: ListTile(
-                leading: Text("Next Reservist Date: 31/07/2022"),
-              ),
-            ),
+
             Padding(padding: EdgeInsets.all(10.0)),
             InkWell(
               child: Container(
