@@ -27,6 +27,21 @@ class _EcanteenScreenState extends State<EcanteenScreen> {
             child: ListView(
               children: [
                 Container(
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    color: Color.fromARGB(255, 10, 80, 12),
+                    child: Text(
+                      'Order must be placed between 0900-1100 and 1400-1700',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25,
+                        color: (Colors.white),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
                   child: Text(
                     'Select your camp',
                     textAlign: TextAlign.center,
