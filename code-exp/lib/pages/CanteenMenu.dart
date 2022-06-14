@@ -3,8 +3,6 @@ import '../Dish_Catergory.dart';
 import 'CanteenCart.dart';
 
 class Menu extends StatefulWidget {
-  const Menu({Key? key}) : super(key: key);
-
   @override
   State<Menu> createState() => _MenuState();
 }
@@ -141,6 +139,10 @@ class _MenuState extends State<Menu> {
                       Text(
                         item.name,
                         textAlign: TextAlign.center,
+                      ),
+                      Text(
+                        '\$' + item.price.toString(),
+                        textAlign: TextAlign.center,
                       )
                     ],
                   ),
@@ -180,22 +182,26 @@ class _MenuState extends State<Menu> {
   void _populateDishes() {
     var list = <Dish>[
       Dish(
-        name: 'Chicken Burger',
+        name: 'Chicken Burger ',
+        price: 2.50,
         icon: Icons.fastfood,
         color: Colors.amber,
       ),
       Dish(
         name: 'Mango Slushie',
+        price: 2.00,
         icon: Icons.local_drink,
         color: Colors.deepOrange,
       ),
       Dish(
         name: 'Mix Vegetable Rice',
+        price: 3.50,
         icon: Icons.rice_bowl,
         color: Colors.brown,
       ),
       Dish(
         name: 'Western Cuisine',
+        price: 4.00,
         icon: Icons.restaurant,
         color: Colors.green,
       ),

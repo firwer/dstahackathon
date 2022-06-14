@@ -30,6 +30,11 @@ class _EcanteenScreenState extends State<EcanteenScreen> {
                   child: Text(
                     'Select your camp',
                     textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25,
+                      color: Color(0XFF4d7753),
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -40,55 +45,187 @@ class _EcanteenScreenState extends State<EcanteenScreen> {
                   child: Card(
                     elevation: 5,
                     child: Column(children: <Widget>[
-                      Text('Nee Soon Camp'),
-                      Container(
-                        height: 150,
-                        child: Image.asset(
-                          'assets/images/Jurong_Camp.jpg',
-                          fit: BoxFit.cover,
-                        ),
-                      )
+                      Text(
+                        'NSC',
+                        style:
+                            TextStyle(fontSize: 40, color: Color(0XFF4d7753)),
+                      ),
+                      Text('Nee Soon Camp',
+                          style: TextStyle(
+                            fontSize: 20,
+                          )),
                     ]),
                   ),
                 ),
-                Card(
-                  elevation: 5,
-                  child: Column(children: <Widget>[
-                    Text('Kranji Camp'),
-                    Container(
-                      height: 150,
-                      child: Image.asset(
-                        'assets/images/Jurong_Camp.jpg',
-                        fit: BoxFit.cover,
+                InkWell(
+                  onTap: () => goToMenu(context),
+                  child: Card(
+                    elevation: 5,
+                    child: Column(children: <Widget>[
+                      Text(
+                        'AQC',
+                        style:
+                            TextStyle(fontSize: 40, color: Color(0XFF4d7753)),
                       ),
-                    )
-                  ]),
+                      Text('Amoy Quee Camp',
+                          style: TextStyle(
+                            fontSize: 20,
+                          )),
+                    ]),
+                  ),
                 ),
-                Card(
-                  elevation: 5,
-                  child: Column(children: <Widget>[
-                    Text('Clementi Camp'),
-                    Container(
-                      height: 150,
-                      child: Image.asset(
-                        'assets/images/Jurong_Camp.jpg',
-                        fit: BoxFit.cover,
+                InkWell(
+                  onTap: () => goToMenu(context),
+                  child: Card(
+                    elevation: 5,
+                    child: Column(children: <Widget>[
+                      Text(
+                        'BC1',
+                        style:
+                            TextStyle(fontSize: 40, color: Color(0XFF4d7753)),
                       ),
-                    )
-                  ]),
+                      Text('Bedok Camp 1',
+                          style: TextStyle(
+                            fontSize: 20,
+                          )),
+                    ]),
+                  ),
                 ),
-                Card(
-                  elevation: 5,
-                  child: Column(children: <Widget>[
-                    Text('Jurong Camp'),
-                    Container(
-                      height: 150,
-                      child: Image.asset(
-                        'assets/images/Jurong_Camp.jpg',
-                        fit: BoxFit.cover,
+                InkWell(
+                  onTap: () => goToMenu(context),
+                  child: Card(
+                    elevation: 5,
+                    child: Column(children: <Widget>[
+                      Text(
+                        'BD2',
+                        style:
+                            TextStyle(fontSize: 40, color: Color(0XFF4d7753)),
                       ),
-                    )
-                  ]),
+                      Text('Bedok Camp 2',
+                          style: TextStyle(
+                            fontSize: 20,
+                          )),
+                    ]),
+                  ),
+                ),
+                InkWell(
+                  onTap: () => goToMenu(context),
+                  child: Card(
+                    elevation: 5,
+                    child: Column(children: <Widget>[
+                      Text(
+                        'CC',
+                        style:
+                            TextStyle(fontSize: 40, color: Color(0XFF4d7753)),
+                      ),
+                      Text('Clementi Camp',
+                          style: TextStyle(
+                            fontSize: 20,
+                          )),
+                    ]),
+                  ),
+                ),
+                InkWell(
+                  onTap: () => goToMenu(context),
+                  child: Card(
+                    elevation: 5,
+                    child: Column(children: <Widget>[
+                      Text(
+                        'JC1',
+                        style:
+                            TextStyle(fontSize: 40, color: Color(0XFF4d7753)),
+                      ),
+                      Text('Jurong Camp 1',
+                          style: TextStyle(
+                            fontSize: 20,
+                          )),
+                    ]),
+                  ),
+                ),
+                InkWell(
+                  onTap: () => goToMenu(context),
+                  child: Card(
+                    elevation: 5,
+                    child: Column(children: <Widget>[
+                      Text(
+                        'JC2',
+                        style:
+                            TextStyle(fontSize: 40, color: Color(0XFF4d7753)),
+                      ),
+                      Text('Jurong Camp 2',
+                          style: TextStyle(
+                            fontSize: 20,
+                          )),
+                    ]),
+                  ),
+                ),
+                InkWell(
+                  onTap: () => goToMenu(context),
+                  child: Card(
+                    elevation: 5,
+                    child: Column(children: <Widget>[
+                      Text(
+                        'KC2',
+                        style:
+                            TextStyle(fontSize: 40, color: Color(0XFF4d7753)),
+                      ),
+                      Text('Kranji Camp 2',
+                          style: TextStyle(
+                            fontSize: 20,
+                          )),
+                    ]),
+                  ),
+                ),
+                InkWell(
+                  onTap: () => goToMenu(context),
+                  child: Card(
+                    elevation: 5,
+                    child: Column(children: <Widget>[
+                      Text(
+                        'KC3',
+                        style:
+                            TextStyle(fontSize: 40, color: Color(0XFF4d7753)),
+                      ),
+                      Text('Kranji Camp 3',
+                          style: TextStyle(
+                            fontSize: 20,
+                          )),
+                    ]),
+                  ),
+                ),
+                InkWell(
+                  onTap: () => goToMenu(context),
+                  child: Card(
+                    elevation: 5,
+                    child: Column(children: <Widget>[
+                      Text(
+                        'SAFTI',
+                        style:
+                            TextStyle(fontSize: 40, color: Color(0XFF4d7753)),
+                      ),
+                      Text('SAFTI Military Institute',
+                          style: TextStyle(
+                            fontSize: 20,
+                          )),
+                    ]),
+                  ),
+                ),
+                InkWell(
+                  onTap: () => goToMenu(context),
+                  child: Card(
+                    elevation: 5,
+                    child: Column(children: <Widget>[
+                      Text(
+                        'PRC',
+                        style:
+                            TextStyle(fontSize: 40, color: Color(0XFF4d7753)),
+                      ),
+                      Text('Pasir Ris Camp',
+                          style: TextStyle(
+                            fontSize: 20,
+                          )),
+                    ]),
+                  ),
                 ),
               ],
             )));
