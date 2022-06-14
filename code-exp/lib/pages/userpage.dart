@@ -260,7 +260,7 @@ class _HomeTabState extends State<HomeTab> {
                             color: Colors.black,
                             image: DecorationImage(
                               image: const AssetImage(
-                                  'assets/images/400yahoo_nsman.jpg'),
+                                  'assets/images/refresher.jpg'),
                               fit: BoxFit.cover,
                               colorFilter: ColorFilter.mode(
                                   Colors.black.withOpacity(0.5),
@@ -290,7 +290,8 @@ class _HomeTabState extends State<HomeTab> {
                     ),
                     onTap: () {
                       //TODO: Map this to NS Refresher course
-                      Navigator.of(context).pushNamed('/eChecklist-screen');
+                      Navigator.of(context)
+                          .pushNamed('/refresherCourse-screen');
                     },
                   ),
                   SizedBox(width: 10),

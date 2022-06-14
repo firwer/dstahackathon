@@ -6,6 +6,7 @@ import 'package:code_exp/pages/checklist/echecklist.dart';
 import 'package:code_exp/pages/ecanteen.dart';
 import 'package:code_exp/pages/homepage.dart';
 import 'package:code_exp/pages/newUserData.dart';
+import 'package:code_exp/pages/refresher/refresherCourse.dart';
 import 'package:code_exp/pages/userpage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -58,6 +59,7 @@ class Main extends StatelessWidget {
             '/': (context) => AuthWrapper(),
             '/eCanteen-screen': (context) => EcanteenScreen(),
             '/eChecklist-screen': (context) => echecklistScreen(),
+            '/refresherCourse-screen': (context) => refresherCourseScreen(),
             '/home': (context) => Home(),
             '/userhome': (context) => UserHome(),
             '/getstarted': (context) => newUserData(),
