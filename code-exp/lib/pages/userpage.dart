@@ -57,7 +57,7 @@ class _UserHomeState extends State<UserHome> {
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.fitness_center), label: 'Fitness Calculator'),
+                icon: Icon(Icons.fitness_center), label: 'IPPT Calculator'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.account_circle), label: 'Profile')
           ],
@@ -101,14 +101,15 @@ class _HomeTabState extends State<HomeTab> {
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 3),
+              //IPPTEz System
               InkWell(
                 child: Stack(
                   alignment: Alignment.bottomCenter,
                   children: [
                     Container(
                       width: MediaQuery.of(context).size.width,
-                      height: 200.0,
+                      height: 170.0,
                       decoration: BoxDecoration(
                         color: Colors.black,
                         image: DecorationImage(
@@ -147,9 +148,11 @@ class _HomeTabState extends State<HomeTab> {
               Text('Features',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
               SizedBox(height: 15),
+              //Features
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  //Reservist Maid
                   InkWell(
                     child: Stack(
                       alignment: Alignment.bottomCenter,
@@ -194,7 +197,6 @@ class _HomeTabState extends State<HomeTab> {
                     },
                   ),
                   SizedBox(width: 10),
-
                   //eCanteen
                   InkWell(
                     child: Stack(
@@ -239,7 +241,105 @@ class _HomeTabState extends State<HomeTab> {
                     },
                   ),
                 ],
-              )
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  //Reservist Maid
+                  InkWell(
+                    child: Stack(
+                      alignment: Alignment.bottomCenter,
+                      children: [
+                        Container(
+                          height: boxDim,
+                          width: boxDim,
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                            image: DecorationImage(
+                              image: const AssetImage(
+                                  'assets/images/400yahoo_nsman.jpg'),
+                              fit: BoxFit.cover,
+                              colorFilter: ColorFilter.mode(
+                                  Colors.black.withOpacity(0.5),
+                                  BlendMode.darken),
+                            ),
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset:
+                                    Offset(0, 3), // changes position of shadow
+                              ),
+                            ],
+                          ),
+                        ),
+                        Text(
+                          'NS Refresher',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.center,
+                        )
+                      ],
+                    ),
+                    onTap: () {
+                      //TODO: Map this to NS Refresher course
+                      Navigator.of(context).pushNamed('/eChecklist-screen');
+                    },
+                  ),
+                  SizedBox(width: 10),
+                  //eCanteen
+                  InkWell(
+                    child: Stack(
+                      alignment: Alignment.bottomCenter,
+                      children: [
+                        Container(
+                          height: boxDim,
+                          width: boxDim,
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                            image: DecorationImage(
+                              image: const AssetImage(
+                                  'assets/images/Special-sauces_1.jpg'),
+                              fit: BoxFit.cover,
+                              colorFilter: ColorFilter.mode(
+                                  Colors.black.withOpacity(0.5),
+                                  BlendMode.darken),
+                            ),
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset:
+                                    Offset(0, 3), // changes position of shadow
+                              ),
+                            ],
+                          ),
+                        ),
+                        Text(
+                          'EZLISS',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
+                    onTap: () {
+                      //TODO: Map this to EZ Eliss system
+                      Navigator.of(context).pushNamed('/eCanteen-screen');
+                    },
+                  ),
+                ],
+              ),
             ],
           ),
         ));
