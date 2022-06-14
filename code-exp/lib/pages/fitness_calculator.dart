@@ -22,6 +22,12 @@ class fitnessCalculator extends StatefulWidget {
   State<fitnessCalculator> createState() => _fitnessCalculatorState();
 }
 
+int sitUps = _fitnessCalculatorState.startingSitups;
+int pushUps = _fitnessCalculatorState.startingPushups;
+int runIndex = _fitnessCalculatorState.startingRunIndex;
+int currAge = _fitnessCalculatorState.age;
+String currResult = _fitnessCalculatorState.endResult;
+
 class _fitnessCalculatorState extends State<fitnessCalculator> {
   static int age = 22;
   static int startingPushups = 30;
@@ -31,7 +37,7 @@ class _fitnessCalculatorState extends State<fitnessCalculator> {
   static int pointsSU = pointsforSitUps(age, startingSitups);
   static int pointsRun = pointsforRun(age, timings[startingRunIndex]);
   static int totalPoints = pointsPU + pointsSU + pointsRun;
-  String endResult = result(totalPoints);
+  static String endResult = result(totalPoints);
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +61,8 @@ class _fitnessCalculatorState extends State<fitnessCalculator> {
                       pointsSU = pointsforSitUps(age, startingSitups);
                       pointsRun = pointsforRun(age, timings[startingRunIndex]);
                       totalPoints = pointsPU + pointsSU + pointsRun;
-                      endResult = result(totalPoints);
+                      currResult = endResult = result(totalPoints);
+                      currAge = age;
                     });
                   },
                   child: Icon(
@@ -81,7 +88,9 @@ class _fitnessCalculatorState extends State<fitnessCalculator> {
                       pointsSU = pointsforSitUps(age, startingSitups);
                       pointsRun = pointsforRun(age, timings[startingRunIndex]);
                       totalPoints = pointsPU + pointsSU + pointsRun;
-                      endResult = result(totalPoints);
+                      currResult = endResult = result(totalPoints);
+                      pushUps = startingPushups;
+                      currAge = age;
                     });
                   },
                   child: Icon(
@@ -127,7 +136,8 @@ class _fitnessCalculatorState extends State<fitnessCalculator> {
                         startingPushups = newValue.round();
                         pointsPU = pointsForPushUps(age, startingPushups);
                         totalPoints = pointsPU + pointsSU + pointsRun;
-                        endResult = result(totalPoints);
+                        currResult = endResult = result(totalPoints);
+                        pushUps = startingPushups;
                       });
                     }),
               ],
@@ -162,7 +172,8 @@ class _fitnessCalculatorState extends State<fitnessCalculator> {
                         startingSitups = newValue.round();
                         pointsSU = pointsforSitUps(age, startingSitups);
                         totalPoints = pointsPU + pointsSU + pointsRun;
-                        endResult = result(totalPoints);
+                        currResult = endResult = result(totalPoints);
+                        sitUps = startingSitups;
                       });
                     }),
               ],
@@ -198,7 +209,8 @@ class _fitnessCalculatorState extends State<fitnessCalculator> {
                         pointsRun =
                             pointsforRun(age, timings[startingRunIndex]);
                         totalPoints = pointsPU + pointsSU + pointsRun;
-                        endResult = result(totalPoints);
+                        currResult = endResult = result(totalPoints);
+                        runIndex = startingRunIndex;
                       });
                     }),
               ],
