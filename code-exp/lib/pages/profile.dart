@@ -46,6 +46,11 @@ class _ProfileState extends State<Profile> {
                   title: Text(calculateBMI(Provider.of<myUser>(context).height,
                       Provider.of<myUser>(context).weight))),
             ),
+            Card(
+              child: ListTile(
+                leading: Text("Next Reservist Date: 31/07/2022"),
+              ),
+            ),
             Padding(padding: EdgeInsets.all(10.0)),
             InkWell(
               child: Container(
