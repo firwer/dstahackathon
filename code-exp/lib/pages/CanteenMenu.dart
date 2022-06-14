@@ -23,6 +23,7 @@ class _MenuState extends State<Menu> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Menu'),
+        backgroundColor: Color(0XFF4d7753),
         actions: <Widget>[
           Padding(
             padding: const EdgeInsets.only(right: 16.0, top: 8.0),

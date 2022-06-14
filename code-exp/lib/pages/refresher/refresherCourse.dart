@@ -14,7 +14,10 @@ class _refresherCourseScreenState extends State<refresherCourseScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('NS Refresher Course')),
+        appBar: AppBar(
+          title: Text('NS Refresher Course'),
+          backgroundColor: Color(0XFF4d7753),
+        ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: GridView.builder(
