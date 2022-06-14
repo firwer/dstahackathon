@@ -57,7 +57,7 @@ class _UserHomeState extends State<UserHome> {
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.fitness_center), label: 'Fitness Calculator'),
+                icon: Icon(Icons.fitness_center), label: 'IPPT Calculator'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.account_circle), label: 'Profile')
           ],
@@ -102,6 +102,7 @@ class _HomeTabState extends State<HomeTab> {
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
               ),
               SizedBox(height: 10),
+              //IPPTEz System
               InkWell(
                 child: Stack(
                   alignment: Alignment.bottomCenter,
@@ -147,9 +148,11 @@ class _HomeTabState extends State<HomeTab> {
               Text('Features',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
               SizedBox(height: 15),
+              //Features
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  //Reservist Maid
                   InkWell(
                     child: Stack(
                       alignment: Alignment.bottomCenter,
@@ -194,7 +197,6 @@ class _HomeTabState extends State<HomeTab> {
                     },
                   ),
                   SizedBox(width: 10),
-
                   //eCanteen
                   InkWell(
                     child: Stack(
@@ -239,7 +241,7 @@ class _HomeTabState extends State<HomeTab> {
                     },
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ));
