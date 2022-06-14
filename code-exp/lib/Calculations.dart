@@ -5,11 +5,7 @@ int totalScore(pushup, situp, run) {
 }
 
 String result(int totalPoints) {
-<<<<<<< HEAD
   if (totalPoints < 51) {
-=======
-  if (totalPoints <= 50) {
->>>>>>> 6d159c64768a194fd4ebc49cb37799d4dc36e9df
     return "Fail";
   } else if (totalPoints < 61) {
     return "Pass";
