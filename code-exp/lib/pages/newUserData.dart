@@ -26,7 +26,7 @@ class _newUserDataState extends State<newUserData> {
       backgroundColor: Color(0XFF4d7753),
       body: Padding(
         padding: EdgeInsets.all(20),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+        child: ListView(children: [
           SizedBox(height: 40),
           Text(
             'Let\'s Get To Know You!',
@@ -52,7 +52,7 @@ class _newUserDataState extends State<newUserData> {
                 width: 10,
               ),
               Container(
-                  width: MediaQuery.of(context).size.width * 0.6,
+                  width: MediaQuery.of(context).size.width * 0.5,
                   child: userInput(
                       name, "Enter Your Name Here", TextInputType.name)),
             ],

@@ -47,6 +47,7 @@ class _UserHomeState extends State<UserHome> {
       });
     }
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Color(0XFF4d7753),
         title: Text(appBarTitle),
