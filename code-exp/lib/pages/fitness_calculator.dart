@@ -27,6 +27,7 @@ int pushUps = _fitnessCalculatorState.startingPushups;
 int runIndex = _fitnessCalculatorState.startingRunIndex;
 int currAge = _fitnessCalculatorState.age;
 String currResult = _fitnessCalculatorState.endResult;
+int freq = planFreq(currResult);
 
 class _fitnessCalculatorState extends State<fitnessCalculator> {
   static int age = 22;
@@ -63,6 +64,7 @@ class _fitnessCalculatorState extends State<fitnessCalculator> {
                       totalPoints = pointsPU + pointsSU + pointsRun;
                       currResult = endResult = result(totalPoints);
                       currAge = age;
+                      freq = planFreq(currResult);
                     });
                   },
                   child: Icon(
@@ -91,6 +93,7 @@ class _fitnessCalculatorState extends State<fitnessCalculator> {
                       currResult = endResult = result(totalPoints);
                       pushUps = startingPushups;
                       currAge = age;
+                      freq = planFreq(currResult);
                     });
                   },
                   child: Icon(
@@ -138,6 +141,7 @@ class _fitnessCalculatorState extends State<fitnessCalculator> {
                         totalPoints = pointsPU + pointsSU + pointsRun;
                         currResult = endResult = result(totalPoints);
                         pushUps = startingPushups;
+                        freq = planFreq(currResult);
                       });
                     }),
               ],
@@ -174,6 +178,7 @@ class _fitnessCalculatorState extends State<fitnessCalculator> {
                         totalPoints = pointsPU + pointsSU + pointsRun;
                         currResult = endResult = result(totalPoints);
                         sitUps = startingSitups;
+                        freq = planFreq(currResult);
                       });
                     }),
               ],
@@ -211,6 +216,7 @@ class _fitnessCalculatorState extends State<fitnessCalculator> {
                         totalPoints = pointsPU + pointsSU + pointsRun;
                         currResult = endResult = result(totalPoints);
                         runIndex = startingRunIndex;
+                        freq = planFreq(currResult);
                       });
                     }),
               ],

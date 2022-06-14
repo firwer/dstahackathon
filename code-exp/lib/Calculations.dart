@@ -18,6 +18,18 @@ String result(int totalPoints) {
   }
 }
 
+int planFreq(String results) {
+  if (results == 'Gold') {
+    return 6;
+  } else if (results == 'Silver') {
+    return 5;
+  } else if (results == 'Pass' || results == 'Pass with incentive') {
+    return 4;
+  } else {
+    return 3;
+  }
+}
+
 colorChange(String results) {
   if (results == 'Gold') {
     return Color.fromARGB(255, 230, 178, 20);
