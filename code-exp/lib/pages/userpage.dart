@@ -90,259 +90,259 @@ class _HomeTabState extends State<HomeTab> {
   Widget build(BuildContext context) {
     double boxDim = MediaQuery.of(context).size.width / 2.4;
     return Container(
-        alignment: Alignment.center,
-        padding: EdgeInsets.all(20),
-        child: SafeArea(
-          child: Column(
-            children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text('Good Evening ${Provider.of<myUser>(context).name}',
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
-              ),
-              SizedBox(height: 3),
-              //IPPTEz System
-              InkWell(
-                child: Stack(
-                  alignment: Alignment.bottomCenter,
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 170.0,
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                        image: DecorationImage(
-                          image: const AssetImage('assets/images/ippt.png'),
-                          fit: BoxFit.cover,
-                          colorFilter: ColorFilter.mode(
-                              Colors.black.withOpacity(0.5), BlendMode.darken),
-                        ),
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
+      alignment: Alignment.center,
+      padding: EdgeInsets.all(20),
+      child: SafeArea(
+        child: ListView(
+          scrollDirection: Axis.vertical,
+          children: [
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text('Good Evening ${Provider.of<myUser>(context).name}',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
+            ),
+            SizedBox(height: 3),
+            //IPPTEz System
+            InkWell(
+              child: Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 170.0,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      image: DecorationImage(
+                        image: const AssetImage('assets/images/ippt.png'),
+                        fit: BoxFit.cover,
+                        colorFilter: ColorFilter.mode(
+                            Colors.black.withOpacity(0.5), BlendMode.darken),
                       ),
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
                     ),
-                    Text(
-                      'IPPTEz System',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold),
-                    )
-                  ],
+                  ),
+                  Text(
+                    'IPPTEz System',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+              onTap: () {
+                Navigator.of(context).pushNamed('/FITplan');
+              },
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text('Features',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
+            SizedBox(height: 15),
+            //Features
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                //Reservist Maid
+                InkWell(
+                  child: Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: [
+                      Container(
+                        height: boxDim,
+                        width: boxDim,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          image: DecorationImage(
+                            image: const AssetImage(
+                                'assets/images/400yahoo_nsman.jpg'),
+                            fit: BoxFit.cover,
+                            colorFilter: ColorFilter.mode(
+                                Colors.black.withOpacity(0.5),
+                                BlendMode.darken),
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                      ),
+                      Text(
+                        'Reservist \nMaid',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center,
+                      )
+                    ],
+                  ),
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/eChecklist-screen');
+                  },
                 ),
-                onTap: () {
-                  Navigator.of(context).pushNamed('/FITplan');
-                },
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text('Features',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
-              SizedBox(height: 15),
-              //Features
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  //Reservist Maid
-                  InkWell(
-                    child: Stack(
-                      alignment: Alignment.bottomCenter,
-                      children: [
-                        Container(
-                          height: boxDim,
-                          width: boxDim,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            image: DecorationImage(
-                              image: const AssetImage(
-                                  'assets/images/400yahoo_nsman.jpg'),
-                              fit: BoxFit.cover,
-                              colorFilter: ColorFilter.mode(
-                                  Colors.black.withOpacity(0.5),
-                                  BlendMode.darken),
-                            ),
-                            borderRadius: BorderRadius.circular(20),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset:
-                                    Offset(0, 3), // changes position of shadow
-                              ),
-                            ],
+                SizedBox(width: 10),
+                //eCanteen
+                InkWell(
+                  child: Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: [
+                      Container(
+                        height: boxDim,
+                        width: boxDim,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          image: DecorationImage(
+                            image: const AssetImage(
+                                'assets/images/Special-sauces_1.jpg'),
+                            fit: BoxFit.cover,
+                            colorFilter: ColorFilter.mode(
+                                Colors.black.withOpacity(0.5),
+                                BlendMode.darken),
                           ),
-                        ),
-                        Text(
-                          'Reservist \nMaid',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.center,
-                        )
-                      ],
-                    ),
-                    onTap: () {
-                      Navigator.of(context).pushNamed('/eChecklist-screen');
-                    },
-                  ),
-                  SizedBox(width: 10),
-                  //eCanteen
-                  InkWell(
-                    child: Stack(
-                      alignment: Alignment.bottomCenter,
-                      children: [
-                        Container(
-                          height: boxDim,
-                          width: boxDim,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            image: DecorationImage(
-                              image: const AssetImage(
-                                  'assets/images/Special-sauces_1.jpg'),
-                              fit: BoxFit.cover,
-                              colorFilter: ColorFilter.mode(
-                                  Colors.black.withOpacity(0.5),
-                                  BlendMode.darken),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
                             ),
-                            borderRadius: BorderRadius.circular(20),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset:
-                                    Offset(0, 3), // changes position of shadow
-                              ),
-                            ],
-                          ),
+                          ],
                         ),
-                        Text(
-                          'eCanteen Pal',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        )
-                      ],
-                    ),
-                    onTap: () {
-                      Navigator.of(context).pushNamed('/eCanteen-screen');
-                    },
+                      ),
+                      Text(
+                        'eCanteen Pal',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      )
+                    ],
                   ),
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  //Reservist Maid
-                  InkWell(
-                    child: Stack(
-                      alignment: Alignment.bottomCenter,
-                      children: [
-                        Container(
-                          height: boxDim,
-                          width: boxDim,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            image: DecorationImage(
-                              image: const AssetImage(
-                                  'assets/images/refresher.jpg'),
-                              fit: BoxFit.cover,
-                              colorFilter: ColorFilter.mode(
-                                  Colors.black.withOpacity(0.5),
-                                  BlendMode.darken),
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/eCanteen-screen');
+                  },
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                //Reservist Maid
+                InkWell(
+                  child: Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: [
+                      Container(
+                        height: boxDim,
+                        width: boxDim,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          image: DecorationImage(
+                            image:
+                                const AssetImage('assets/images/refresher.jpg'),
+                            fit: BoxFit.cover,
+                            colorFilter: ColorFilter.mode(
+                                Colors.black.withOpacity(0.5),
+                                BlendMode.darken),
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
                             ),
-                            borderRadius: BorderRadius.circular(20),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset:
-                                    Offset(0, 3), // changes position of shadow
-                              ),
-                            ],
-                          ),
+                          ],
                         ),
-                        Text(
-                          'NS Refresher',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.center,
-                        )
-                      ],
-                    ),
-                    onTap: () {
-                      //TODO: Map this to NS Refresher course
-                      Navigator.of(context)
-                          .pushNamed('/refresherCourse-screen');
-                    },
+                      ),
+                      Text(
+                        'NS Refresher',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center,
+                      )
+                    ],
                   ),
-                  SizedBox(width: 10),
-                  //eCanteen
-                  InkWell(
-                    child: Stack(
-                      alignment: Alignment.bottomCenter,
-                      children: [
-                        Container(
-                          height: boxDim,
-                          width: boxDim,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            image: DecorationImage(
-                              image: const AssetImage(
-                                  'assets/images/Special-sauces_1.jpg'),
-                              fit: BoxFit.cover,
-                              colorFilter: ColorFilter.mode(
-                                  Colors.black.withOpacity(0.5),
-                                  BlendMode.darken),
+                  onTap: () {
+                    //TODO: Map this to NS Refresher course
+                    Navigator.of(context).pushNamed('/refresherCourse-screen');
+                  },
+                ),
+                SizedBox(width: 10),
+                //eCanteen
+                InkWell(
+                  child: Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: [
+                      Container(
+                        height: boxDim,
+                        width: boxDim,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          image: DecorationImage(
+                            image: const AssetImage(
+                                'assets/images/TFEFeature.jpg'),
+                            fit: BoxFit.cover,
+                            colorFilter: ColorFilter.mode(
+                                Colors.black.withOpacity(0.5),
+                                BlendMode.darken),
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
                             ),
-                            borderRadius: BorderRadius.circular(20),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset:
-                                    Offset(0, 3), // changes position of shadow
-                              ),
-                            ],
-                          ),
+                          ],
                         ),
-                        Text(
-                          'EZLISS',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        )
-                      ],
-                    ),
-                    onTap: () {
-                      //TODO: Map this to EZ Eliss system
-                      Navigator.of(context).pushNamed('/eCanteen-screen');
-                    },
+                      ),
+                      Text(
+                        'EZLISS',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      )
+                    ],
                   ),
-                ],
-              ),
-            ],
-          ),
-        ));
+                  onTap: () {
+                    //TODO: Map this to EZ Eliss system
+                    Navigator.of(context).pushNamed('/eCanteen-screen');
+                  },
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
