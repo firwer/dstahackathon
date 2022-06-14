@@ -1,3 +1,4 @@
+import 'package:code_exp/pages/refresher/courses/coursePage.dart';
 import 'package:flutter/material.dart';
 
 import 'CoursesMenu.dart';
@@ -65,8 +66,9 @@ class _refresherCourseScreenState extends State<refresherCourseScreen> {
                             alignment: Alignment.bottomRight,
                             child: GestureDetector(
                               onTap: () {
-                                setState(() {});
-                                print(item.abbr + ' selected');
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) =>
+                                        coursePage(item.abbr)));
                               },
                             ),
                           ),
