@@ -1,6 +1,5 @@
 import 'package:code_exp/AuthService.dart';
 import 'package:code_exp/Formulae.dart';
-import 'package:code_exp/pages/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -18,6 +17,8 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  double rowSize = 50;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,19 +33,60 @@ class _ProfileState extends State<Profile> {
                     fontSize: 20,
                     fontWeight: FontWeight.bold)),
             Padding(padding: EdgeInsets.all(10.0)),
-            Card(
-                child: ListTile(
-                    leading: Text('Height:'),
-                    title: Text('${Provider.of<myUser>(context).height} cm'))),
-            Card(
-                child: ListTile(
-                    leading: Text('Weight:'),
-                    title: Text('${Provider.of<myUser>(context).weight} kg'))),
-            Card(
-              child: ListTile(
-                  leading: Text("BMI: "),
-                  title: Text(calculateBMI(Provider.of<myUser>(context).height,
-                      Provider.of<myUser>(context).weight))),
+            Container(
+              height: rowSize,
+              child: Card(
+                child: Row(
+                  children: [
+                    Container(
+                      width: 75,
+                      child: Text(
+                        'Height:',
+                        textAlign: TextAlign.right,
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    Text('${Provider.of<myUser>(context).height} cm'),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              height: rowSize,
+              child: Card(
+                child: Row(
+                  children: [
+                    Container(
+                      width: 75,
+                      child: Text(
+                        'Weight:',
+                        textAlign: TextAlign.right,
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    Text('${Provider.of<myUser>(context).weight} kg'),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              height: rowSize,
+              child: Card(
+                child: Row(
+                  children: [
+                    Container(
+                      width: 75,
+                      child: Text(
+                        'BMI:',
+                        textAlign: TextAlign.right,
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    Text(calculateBMI(Provider.of<myUser>(context).height,
+                        Provider.of<myUser>(context).weight)),
+                  ],
+                ),
+              ),
             ),
             Card(
               child: ListTile(
