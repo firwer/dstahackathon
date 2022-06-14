@@ -1,4 +1,4 @@
-import 'package:code_exp/pages/refresher/courses/coursePage.dart';
+import 'package:code_exp/pages/refresher/coursePage.dart';
 import 'package:flutter/material.dart';
 
 import 'CoursesMenu.dart';
