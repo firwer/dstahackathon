@@ -19,75 +19,81 @@ class _trainingPlanState extends State<trainingPlan> {
           title: Text('Customised FITPlan'),
           backgroundColor: Color(0XFF4d7753),
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Column(
-              children: [
-                Text('Tips for Fitness:',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold)),
-                Stack(
-                  children: <Widget>[
-                    // Stroked text as border.
-                    Text(
-                      'Repetition is king',
+        body: Container(
+          height: MediaQuery.of(context).size.height,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Column(
+                children: [
+                  Text('Tips for Fitness:',
                       style: TextStyle(
-                        fontSize: 40,
-                        foreground: Paint()
-                          ..style = PaintingStyle.stroke
-                          ..strokeWidth = 6
-                          ..color = Colors.black!,
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold)),
+                  Stack(
+                    children: <Widget>[
+                      // Stroked text as border.
+                      Text(
+                        'Repetition is king',
+                        style: TextStyle(
+                          fontSize: 40,
+                          foreground: Paint()
+                            ..style = PaintingStyle.stroke
+                            ..strokeWidth = 6
+                            ..color = Colors.black,
+                        ),
                       ),
-                    ),
-                    // Solid text as fill.
-                    Text(
-                      'Repetition is king',
+                      // Solid text as fill.
+                      Text(
+                        'Repetition is king',
+                        style: TextStyle(
+                          fontSize: 40,
+                          color: Colors.grey[300],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Stack(
+                    children: <Widget>[
+                      // Stroked text as border.
+                      Text(
+                        'Consistency is key',
+                        style: TextStyle(
+                          fontSize: 40,
+                          foreground: Paint()
+                            ..style = PaintingStyle.stroke
+                            ..strokeWidth = 6
+                            ..color = Colors.black,
+                        ),
+                      ),
+                      // Solid text as fill.
+                      Text(
+                        'Consistency is key',
+                        style: TextStyle(
+                          fontSize: 40,
+                          color: Colors.grey[300],
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                  Text('View your Training Schedule Below',
                       style: TextStyle(
-                        fontSize: 40,
-                        color: Colors.grey[300],
-                      ),
-                    ),
-                  ],
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold)),
+                ],
+              ),
+              Container(
+                height: 500,
+                child: SfCalendar(
+                  view: CalendarView.week,
+                  dataSource: TrainingDataSource(getAppointments()),
                 ),
-                Stack(
-                  children: <Widget>[
-                    // Stroked text as border.
-                    Text(
-                      'Consistency is key',
-                      style: TextStyle(
-                        fontSize: 40,
-                        foreground: Paint()
-                          ..style = PaintingStyle.stroke
-                          ..strokeWidth = 6
-                          ..color = Colors.black!,
-                      ),
-                    ),
-                    // Solid text as fill.
-                    Text(
-                      'Consistency is key',
-                      style: TextStyle(
-                        fontSize: 40,
-                        color: Colors.grey[300],
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10),
-                Text('View your Training Schedule Below',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold)),
-              ],
-            ),
-            SfCalendar(
-              view: CalendarView.week,
-              dataSource: TrainingDataSource(getAppointments()),
-            )
-          ],
+              )
+            ],
+          ),
         ));
   }
 }

@@ -25,6 +25,7 @@ class _CartState extends State<Cart> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Cart'),
+        backgroundColor: Color(0XFF4d7753),
         actions: [
           ElevatedButton(
             style: ButtonStyle(
