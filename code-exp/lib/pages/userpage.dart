@@ -146,7 +146,7 @@ class _HomeTabState extends State<HomeTab> {
             SizedBox(
               height: 10,
             ),
-            Text('Features',
+            Text('Quick Access',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
             SizedBox(height: 15),
             //Features
@@ -244,7 +244,7 @@ class _HomeTabState extends State<HomeTab> {
               ],
             ),
             SizedBox(
-              height: 10,
+              height: 15,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -256,7 +256,7 @@ class _HomeTabState extends State<HomeTab> {
                     children: [
                       Container(
                         height: boxDim,
-                        width: boxDim,
+                        width: MediaQuery.of(context).size.width * 0.85,
                         decoration: BoxDecoration(
                           color: Colors.black,
                           image: DecorationImage(
@@ -296,49 +296,49 @@ class _HomeTabState extends State<HomeTab> {
                 ),
                 SizedBox(width: 10),
                 //eCanteen
-                InkWell(
-                  child: Stack(
-                    alignment: Alignment.bottomCenter,
-                    children: [
-                      Container(
-                        height: boxDim,
-                        width: boxDim,
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                          image: DecorationImage(
-                            image: const AssetImage(
-                                'assets/images/TFEFeature.jpg'),
-                            fit: BoxFit.cover,
-                            colorFilter: ColorFilter.mode(
-                                Colors.black.withOpacity(0.5),
-                                BlendMode.darken),
-                          ),
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 5,
-                              blurRadius: 7,
-                              offset:
-                                  Offset(0, 3), // changes position of shadow
-                            ),
-                          ],
-                        ),
-                      ),
-                      Text(
-                        'EZLISS',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
-                      )
-                    ],
-                  ),
-                  onTap: () {
-                    //TODO: Map this to EZ Eliss system
-                    Navigator.of(context).pushNamed('/eCanteen-screen');
-                  },
-                ),
+                // InkWell(
+                //   child: Stack(
+                //     alignment: Alignment.bottomCenter,
+                //     children: [
+                //       Container(
+                //         height: boxDim,
+                //         width: boxDim,
+                //         decoration: BoxDecoration(
+                //           color: Colors.black,
+                //           image: DecorationImage(
+                //             image: const AssetImage(
+                //                 'assets/images/TFEFeature.jpg'),
+                //             fit: BoxFit.cover,
+                //             colorFilter: ColorFilter.mode(
+                //                 Colors.black.withOpacity(0.5),
+                //                 BlendMode.darken),
+                //           ),
+                //           borderRadius: BorderRadius.circular(20),
+                //           boxShadow: [
+                //             BoxShadow(
+                //               color: Colors.grey.withOpacity(0.5),
+                //               spreadRadius: 5,
+                //               blurRadius: 7,
+                //               offset:
+                //                   Offset(0, 3), // changes position of shadow
+                //             ),
+                //           ],
+                //         ),
+                //       ),
+                //       Text(
+                //         'EZLISS',
+                //         style: TextStyle(
+                //             color: Colors.white,
+                //             fontSize: 20,
+                //             fontWeight: FontWeight.bold),
+                //       )
+                //     ],
+                //   ),
+                //   onTap: () {
+                //     //TODO: Map this to EZ Eliss system
+                //     Navigator.of(context).pushNamed('/eCanteen-screen');
+                //   },
+                // ),
               ],
             ),
           ],
