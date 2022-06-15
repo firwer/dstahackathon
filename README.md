@@ -14,7 +14,7 @@ Description of our APP: Our application, MyArmyPal serves to be an all in one se
 5. Reservist Packing Buddy (Reservist Packing List Helper for NSMAN)
 7. Anytime ELISS System (Work In Progress) (Not implemented but model ready, see below)
 
-** Project Contributors: **
+**Project Contributors:**
 - Poh Wei Pin (App Auth and Data Collection,Home & Signup Pages, ML Model)
 - Tan Zi Xi (IPPT Fitness Score Calculator, FITPlan and UI designer)
 - Wang Yong Bin (eCanteen Pickup, FITPlan and UI designer)
@@ -31,7 +31,7 @@ Anytime Eliss (Trained Model)
 
 ![image](https://user-images.githubusercontent.com/7589432/173735679-017f341e-3dcd-4ee7-9f9d-6faebd2a46d9.png)
 
-** This was not implemented due to difficulties in implementing ML model interpreter **
+**This was not implemented due to difficulties in implementing ML model interpreter**
 ![image](https://user-images.githubusercontent.com/7589432/173735702-ab9b5188-a1af-423b-bd74-243e43bc87f7.png)
 
 AAR: Problem Face - Camera & Model was working well, but there was no detection on screen despite repeated test and changing of different intepreter plugins
