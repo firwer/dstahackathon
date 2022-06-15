@@ -14,6 +14,12 @@ Description of our APP: Our application, MyArmyPal serves to be an all in one se
 5. Reservist Packing Buddy (Reservist Packing List Helper for NSMAN)
 7. Anytime ELISS System (Work In Progress) (Not implemented but model ready, see below)
 
+** Project Contributors: **
+- Poh Wei Pin (App Auth and Data Collection,Home & Signup Pages, ML Model)
+- Tan Zi Xi (IPPT Fitness Score Calculator, FITPlan and UI designer)
+- Wang Yong Bin (eCanteen Pickup, FITPlan and UI designer)
+- Sean (Reservist Packing Buddy, SlideDeck and Video Editor for presentation)
+
 App Video Introduction: https://youtu.be/e7hrOdYwr0E
 ![image](https://user-images.githubusercontent.com/7589432/173734771-13319e21-054a-41ae-b08f-5b8196ff4929.png)
 
